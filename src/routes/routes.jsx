@@ -2,14 +2,14 @@ import {createBrowserRouter} from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/Home";
 // import NewDetailsPage from "../pages/NewDetailsPage";
-import SignleChef from "../pages/SignleChef";
 import RecipesLayout from "../layout/RecipesLayout";
-import Details from "../pages/Details";
 import NewDetailsPage from "../pages/NewDetailsPage";
+import BlogsPage from "../pages/BlogsPage";
 // import NewDetailsPage from "../pages/NewDetailsPage";
 // import Details from "../pages/Details";
 // import RecipesLayout from "../layout/RecipesLayout";
 // import Card from '../pages/Card';
+
 
 
 const router = createBrowserRouter([
@@ -38,16 +38,16 @@ const router = createBrowserRouter([
             
         ]
     },
-    // {
-    //     path:'/',
-    //     element:<RecipesLayout></RecipesLayout>,
-    //     children:[
-    //         {
-    //             path:'/blog',
-    //             element:<blog></blog>
-    //         }
-    //     ]
-    // }
+    {
+        path:'/',
+        element:<RecipesLayout></RecipesLayout>,
+        children:[
+            {
+                path:'/blog',
+                element:<BlogsPage></BlogsPage>
+            }
+        ]
+    }
 
    
 
