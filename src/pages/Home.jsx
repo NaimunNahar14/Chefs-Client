@@ -7,7 +7,7 @@ const Home = () => {
   const [lists, setLists] = useState([]);
 
   useEffect(() =>{
-    fetch('http://localhost:5000/recipes')
+    fetch('https://the-recipe-server-naimunnahar14.vercel.app/recipes')
     .then((res) => res.json())
     .then((data) => setLists(data)); 
   }, []);
