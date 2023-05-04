@@ -30,7 +30,7 @@ const Navigationbar = () => {
                             {user && <FaUserCircle style={{ fontSize: '2rem' }}>
                             </FaUserCircle>
                             }
-                            {user ?
+                            {user ?         
                                 <Button onClick={handleLogOut}>Logout</Button> :
                                 <Link to='/login'><Button>login</Button>
                                 </Link>

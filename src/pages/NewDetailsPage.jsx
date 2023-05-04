@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, CardGroup, Container,Image, Toast  } from 'react-bootstrap';
+import {  Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import {FaThumbsUp } from "react-icons/fa";
 import InsideEditors from './InsideEditors';
@@ -7,13 +7,6 @@ import InsideEditors from './InsideEditors';
 const NewDetailsPage = () => {
 
     const list = useLoaderData();
-    const [isFavorited, setIsFavorited] = useState(false);
-    const [showToast, setShowToast] = useState(false);
-
-    const handleFavoriteClick = () => {
-        setIsFavorited(true);
-        setShowToast(true);
-  };
 
     return (
         <div>
