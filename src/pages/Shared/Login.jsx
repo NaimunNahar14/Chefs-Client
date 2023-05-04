@@ -4,11 +4,37 @@ import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../providers/AuthProvider';
 import {  FaGithub, FaGoogle } from "react-icons/fa";
-
-
-
-
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from '../../firebase/firebase.config';
 const Login = () => {
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubSignIn = () =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            navigate(from, {replace: true});
+        })
+        .catch(error =>{
+            console.log(error.message);
+        })
+    }
+
+    const handleGoogleSignIn = () =>{
+       signInWithPopup(auth, googleProvider)
+       .then(result =>{
+        const user = result.user;
+        console.log(user);
+        navigate(from, {replace: true});
+       })
+       .catch(error =>{
+        console.log(error.message);
+       })
+
+    }
     const { signIn } = useContext(AuthContext);
     const navigate =useNavigate();
     const location = useLocation();
@@ -65,8 +91,8 @@ const Login = () => {
                 </Form.Text>
             </Form>
             <br />
-            <Button className='mb-2' variant="primary"> <FaGoogle></FaGoogle> Login with Google</Button>
-            <Button variant="dark"> <FaGithub></FaGithub> Login with Github</Button>
+            <Button onClick={handleGoogleSignIn} className='mb-2' variant="primary"> <FaGoogle></FaGoogle> Login with Google</Button>
+            <Button onClick={handleGithubSignIn} variant="dark"> <FaGithub></FaGithub> Login with Github</Button>
         </Container>
     );
 };
