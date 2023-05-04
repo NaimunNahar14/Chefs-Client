@@ -3,6 +3,10 @@ import { Button, Container } from 'react-bootstrap';
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../providers/AuthProvider';
+import {  FaGithub, FaGoogle } from "react-icons/fa";
+
+
+
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -60,6 +64,9 @@ const Login = () => {
 
                 </Form.Text>
             </Form>
+            <br />
+            <Button className='mb-2' variant="primary"> <FaGoogle></FaGoogle> Login with Google</Button>
+            <Button variant="dark"> <FaGithub></FaGithub> Login with Github</Button>
         </Container>
     );
 };

@@ -1,11 +1,18 @@
-import React from 'react';
-import { Card, CardGroup, Container,Image  } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Card, CardGroup, Container,Image, Toast  } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import {FaThumbsUp } from "react-icons/fa";
 
 const NewDetailsPage = () => {
 
     const list = useLoaderData();
+    const [isFavorited, setIsFavorited] = useState(false);
+    const [showToast, setShowToast] = useState(false);
+
+    const handleFavoriteClick = () => {
+        setIsFavorited(true);
+        setShowToast(true);
+  };
 
     return (
         <div>
@@ -26,7 +33,14 @@ const NewDetailsPage = () => {
                         </Card.Text>
                         <div>
                         <Card.Text>
-                           
+                                    <Button variant="outline-danger" onClick={handleFavoriteClick} disabled={isFavorited}>Favorite</Button>
+                                    <Toast show={showToast} onClose={() => setShowToast(false)}>
+                                        <Toast.Header>
+                                            <strong className="mr-auto">Favorite</strong>
+                                        </Toast.Header>
+                                        <Toast.Body>This recipe is now your favorite!</Toast.Body>
+                                    </Toast>
+
                            
 
                         </Card.Text>
