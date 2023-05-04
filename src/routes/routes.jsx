@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import RecipesLayout from "../layout/RecipesLayout";
 import NewDetailsPage from "../pages/NewDetailsPage";
 import BlogsPage from "../pages/BlogsPage";
+import ErrorPage from "../pages/ErrorPage";
 // import NewDetailsPage from "../pages/NewDetailsPage";
 // import Details from "../pages/Details";
 // import RecipesLayout from "../layout/RecipesLayout";
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:
         [
             {
