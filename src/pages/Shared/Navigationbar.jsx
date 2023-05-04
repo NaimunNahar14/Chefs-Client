@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -7,6 +7,12 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Navigationbar = () => {
 
     const {user, logOut} =useContext(AuthContext);
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Name
+         
+        </Tooltip>
+      );
     const handleLogOut = () =>{
         logOut()
         .then()
@@ -27,9 +33,17 @@ const Navigationbar = () => {
                         </Nav>
                         <Nav>
                         <Nav.Link href="#dd"></Nav.Link>
-                            {user && <FaUserCircle style={{ fontSize: '2rem' }}>
-                            </FaUserCircle>
-                            }
+                        {user && <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={renderTooltip} >
+                        <Button><FaUserCircle style={{ fontSize: '2rem' }}>
+                            </FaUserCircle></Button>
+                            
+
+
+                            </OverlayTrigger>}
+                        
                             {user ?         
                                 <Button onClick={handleLogOut}>Logout</Button> :
                                 <Link to='/login'><Button>login</Button>

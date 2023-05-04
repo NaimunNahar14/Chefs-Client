@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {  Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import {FaThumbsUp } from "react-icons/fa";
+// import Recipes from './recipes';
 import InsideEditors from './InsideEditors';
 
 const NewDetailsPage = () => {
-
-    const list = useLoaderData();
+    const chefs = useLoaderData();
+    
 
     return (
         <div>
-            <Container>
+             <Container>
                 <Card style={{ width: '20rem' }} className='mt-2'>
-                    <Card.Img variant="top" src={list?.picture} />
+                    <Card.Img variant="top" src={chefs?.picture} />
                     <Card.Body>
-                        <Card.Title>Chef Name: {list.name}</Card.Title>
+                        <Card.Title>Chef Name: {chefs.name}</Card.Title>
                         <Card.Text>
-                        <span className='text-primary'>Chef Bio:</span> {list.bio}
+                        <span className='text-primary'>Chef Bio:</span> {chefs.bio}
                           
                         </Card.Text>
                         <Card.Text>
-                            <span className='text-primary'>Years of Experience:</span> {list.years_experience} years.
+                            <span className='text-primary'>Years of Experience:</span> {chefs.years_experience} years.
                         </Card.Text>
                         <Card.Text>
-                            <span className='text-primary'>Numbers of Recipes: </span> {list.num_recipes}
+                            <span className='text-primary'>Numbers of Recipes: </span> {chefs.num_recipes}
                         </Card.Text>
-                        <small className="text-primary"> <FaThumbsUp></FaThumbsUp>{list.likes}</small>
+                        <small className="text-primary"> <FaThumbsUp></FaThumbsUp>{chefs.likes}</small>
                     </Card.Body>
                 </Card>
-                <InsideEditors></InsideEditors>
+               <InsideEditors></InsideEditors>
         </Container>
         
 
@@ -37,7 +38,7 @@ const NewDetailsPage = () => {
             
            
            
-            
+         
             
             
         </div>
