@@ -6,6 +6,8 @@ import RecipesLayout from "../layout/RecipesLayout";
 import NewDetailsPage from "../pages/NewDetailsPage";
 import BlogsPage from "../pages/BlogsPage";
 import ErrorPage from "../pages/ErrorPage";
+import Login from "../pages/Shared/Login";
+import Register from "./Register";
 // import NewDetailsPage from "../pages/NewDetailsPage";
 // import Details from "../pages/Details";
 // import RecipesLayout from "../layout/RecipesLayout";
@@ -47,8 +49,16 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<BlogsPage></BlogsPage>
+            },
+            {
+                path: '/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             }
-        ]
+         ]
     }
 
    

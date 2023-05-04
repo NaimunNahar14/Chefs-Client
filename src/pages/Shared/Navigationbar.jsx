@@ -21,7 +21,7 @@ const Navigationbar = () => {
                             
                         </Nav>
                         <Nav>
-                        <Nav.Link href="#dd">{user.displayName}</Nav.Link>
+                        <Nav.Link href="#dd"></Nav.Link>
                             {user && <FaUserCircle style={{ fontSize: '2rem' }}>
                             </FaUserCircle>
                             }
