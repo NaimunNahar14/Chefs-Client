@@ -1,17 +1,14 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/Home";
-// import NewDetailsPage from "../pages/NewDetailsPage";
 import RecipesLayout from "../layout/RecipesLayout";
 import NewDetailsPage from "../pages/NewDetailsPage";
 import BlogsPage from "../pages/BlogsPage";
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Shared/Login";
 import Register from "./Register";
-// import NewDetailsPage from "../pages/NewDetailsPage";
-// import Details from "../pages/Details";
-// import RecipesLayout from "../layout/RecipesLayout";
-// import Card from '../pages/Card';
+import PrivateRoute from "./PrivateRoute";
+
 
 
 
@@ -36,7 +33,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:':id',
-                element:<NewDetailsPage></NewDetailsPage>,
+                element:<PrivateRoute><NewDetailsPage></NewDetailsPage></PrivateRoute>,
                 loader:({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
             }
             
