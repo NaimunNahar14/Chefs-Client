@@ -1,18 +1,16 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import { useRouteError } from 'react-router-dom';
-
+import errorImage from '../assets/oops-404-error-with-broken-robot-concept-illustration_114360-1932.avif';
 const ErrorPage = () => {
     const { error, status } = useRouteError()
 
     return (
         <div>
-            <Container className="mt-5">
+            
                 <Row>
-                    <Col>
-                        <h1 className="text-center">Oops!</h1>
-                        <p className="text-center">We couldn't find the page you're looking for.</p>
-                        <div>
+                    <Col className='text-center'>
+                    <Image src={errorImage}></Image>
                             <h2>
                                 <span>Error</span>
                                 {status || 404}
@@ -21,10 +19,9 @@ const ErrorPage = () => {
                                 {error?.message}
                             </p>
                             <Button variant="primary" className="mx-auto d-block" onClick={() => window.location.href = "/"}>Go back to homepage</Button>
-                        </div>
                     </Col>
                 </Row>
-            </Container>
+            
 
         </div>
     );
