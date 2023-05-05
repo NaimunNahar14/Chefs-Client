@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, CardGroup, Container, Image } from 'react-bootstrap';
 import {FaThumbsUp } from "react-icons/fa";
+import {LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
 const Details = ({list}) => {
@@ -9,7 +10,7 @@ const Details = ({list}) => {
         <Container>
             <CardGroup  className='mb-4'>
                 <Card border='primary' className='d-flex align-item-center'>
-                <Image style={{height:'50%'}} src={list?.picture} roundedCircle />                 
+                <LazyLoadImage height={200} offset={100} style={{height:'50%'}} src={list?.picture} roundedCircle />                 
                     <Card.Body>
                         <Card.Title className='text-primary text-center'>Chef Name: {list.name}</Card.Title>
                         <Card.Text className='text-dark'>

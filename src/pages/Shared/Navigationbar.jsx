@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Navigationbar = () => {
@@ -26,9 +26,16 @@ const Navigationbar = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/blog">Blog</Nav.Link>
-                            <Nav.Link href="/about">About</Nav.Link>
+                            <Nav.Link as={NavLink} to="/" exact activeClassName="active">
+                                Home
+                            </Nav.Link>
+                            <Nav.Link as={NavLink} to="/blog" exact activeClassName="active">
+                                Blog
+                            </Nav.Link>
+                            <Nav.Link as={NavLink} to="/about" exact activeClassName="active">
+                                About
+                            </Nav.Link>
+                            
                             
                         </Nav>
                         <Nav>
@@ -46,7 +53,7 @@ const Navigationbar = () => {
                         
                             {user ?         
                                 <Button onClick={handleLogOut}>Logout</Button> :
-                                <Link to='/login'><Button>login</Button>
+                                <Link to='/login'><Button>Login</Button>
                                 </Link>
 
                             }
