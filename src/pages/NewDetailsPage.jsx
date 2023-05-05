@@ -2,8 +2,10 @@ import React from 'react';
 import {  Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import {FaThumbsUp } from "react-icons/fa";
-// import Recipes from './recipes';
 import InsideEditors from './InsideEditors';
+
+
+// import InsideEditors from './InsideEditors';
 
 const NewDetailsPage = () => {
     const chefs = useLoaderData();
@@ -29,17 +31,20 @@ const NewDetailsPage = () => {
                         <small className="text-primary"> <FaThumbsUp></FaThumbsUp>{chefs.likes}</small>
                     </Card.Body>
                 </Card>
-               <InsideEditors></InsideEditors>
-        </Container>
-        
+                {
+                    chefs.recipes.map(recipe =>
+                       <InsideEditors
+                       key={recipe.recipes_id}
+                       recipe={recipe}
+                       >
 
-                      
-            
-            
-           
-           
-         
-            
+                       </InsideEditors>
+                        
+                        )
+                }
+          
+        </Container>
+              
             
         </div>
     );

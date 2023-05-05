@@ -10,7 +10,7 @@ const Details = ({list}) => {
         <Container>
             <CardGroup  className='mb-4'>
                 <Card border='primary' className='d-flex align-item-center'>
-                <LazyLoadImage height={200} offset={100} style={{height:'50%'}} src={list?.picture} roundedCircle />                 
+                <LazyLoadImage height={200} offset={300} threshold={0.95} style={{height:'50%'}} src={list?.picture} roundedCircle />                 
                     <Card.Body>
                         <Card.Title className='text-primary text-center'>Chef Name: {list.name}</Card.Title>
                         <Card.Text className='text-dark'>
